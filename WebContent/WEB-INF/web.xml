@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app id="WebApp_ID" version="3.0"
+	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+	<servlet>
+		<servlet-name>plutoPortlet</servlet-name>
+		<!-- <servlet-class>org.apache.pluto.core.PortletServlet</servlet-class> -->
+		<servlet-class>org.apache.pluto.container.driver.PortletServlet</servlet-class>
+		<init-param>
+			<param-name>portlet-name</param-name>
+			<param-value>plutoPortlet</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>plutoPortlet</servlet-name>
+		<url-pattern>/PlutoInvoker/plutoPortlet</url-pattern>
+	</servlet-mapping>
+	<jsp-config>
+		<taglib>
+			<taglib-uri>http://java.sun.com/portlet_2_0</taglib-uri>
+			<taglib-location>/WEB-INF/portlet_2_0.tld</taglib-location>
+		</taglib>
+	</jsp-config>
+	<!-- <servlet> <servlet-name>TestPortlet1</servlet-name> <servlet-class>org.apache.pluto.container.driver.PortletServlet 
+		</servlet-class> <init-param> <param-name>portlet-name</param-name> <param-value>TestPortlet1</param-value> 
+		</init-param> <load-on-startup>1</load-on-startup> </servlet> <servlet-mapping> 
+		<servlet-name>TestPortlet1</servlet-name> <url-pattern>/PlutoInvoker/TestPortlet1</url-pattern> 
+		</servlet-mapping> -->
+</web-app>
