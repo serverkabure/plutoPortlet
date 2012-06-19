@@ -1,6 +1,8 @@
 package plutoportlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Map;
 
 import javax.portlet.ActionRequest;
 import javax.portlet.ActionResponse;
@@ -27,6 +29,7 @@ public class MyPortlet extends GenericPortlet {
 	@Override
 	protected void doView(RenderRequest request, RenderResponse response)
 			throws PortletException, IOException {
+		response.setContentType("text/html; charset=UTF-8");
 		String message = request.getParameter("message");
 		// if (message == null)
 		request.setAttribute("message", message);
@@ -39,17 +42,34 @@ public class MyPortlet extends GenericPortlet {
 	@Override
 	protected void doEdit(RenderRequest request, RenderResponse response)
 			throws PortletException, IOException {
-		PortletRequestDispatcher dispatcher = getPortletContext()
-				.getRequestDispatcher(editPage);
-		dispatcher.include(request, response);
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter writer = response.getWriter();
+		writer.write("<form>");
+		writer.write("<p>EDITÉyÅ[ÉW</p>");
+		writer.write("</form>");
+		writer.close();
 	}
 
 	@Override
 	protected void doHelp(RenderRequest request, RenderResponse response)
 			throws PortletException, IOException {
-		PortletRequestDispatcher dispatcher = getPortletContext()
-				.getRequestDispatcher(helpPage);
-		dispatcher.include(request, response);
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter writer = response.getWriter();
+		writer.write("<form>");
+		writer.write("<p>getenv</p>");
+		writer.write("<table border='1'>");
+		writer.write("<tr><td>key</td><td>value</td></tr>");
+		Map<String, String> map = System.getenv();
+		for (Map.Entry<String, String> e : map.entrySet())
+			writer.write("<tr><td>" + e.getKey() + "</td><td>" + e.getValue()
+					+ "</td></tr>");
+		writer.write("</table>");
+		writer.write("</form>");
+		writer.close();
+
+		// PortletRequestDispatcher dispatcher = getPortletContext()
+		// .getRequestDispatcher(helpPage);
+		// dispatcher.include(request, response);
 	}
 
 	@Override
