@@ -6,18 +6,23 @@
 		<description>plutoPortlet</description>
 		<portlet-name>plutoPortlet</portlet-name>
 		<display-name>plutoPortlet</display-name>
-		<portlet-class>plutoportlet.MyPortlet</portlet-class>
+		<!-- <portlet-class>plutoportlet.MyPortlet</portlet-class> -->
+		<!-- <init-param> -->
+		<!-- <name>viewPage</name> -->
+		<!-- <value>/WEB-INF/jsp/view.jsp</value> -->
+		<!-- </init-param> -->
+		<!-- <init-param> -->
+		<!-- <name>editPage</name> -->
+		<!-- <value>/WEB-INF/jsp/edit.jsp</value> -->
+		<!-- </init-param> -->
+		<!-- <init-param> -->
+		<!-- <name>helpPage</name> -->
+		<!-- <value>/WEB-INF/jsp/help.jsp</value> -->
+		<!-- </init-param> -->
+		<portlet-class>org.springframework.web.portlet.DispatcherPortlet</portlet-class>
 		<init-param>
-			<name>viewPage</name>
-			<value>/WEB-INF/jsp/view.jsp</value>
-		</init-param>
-		<init-param>
-			<name>editPage</name>
-			<value>/WEB-INF/jsp/edit.jsp</value>
-		</init-param>
-		<init-param>
-			<name>helpPage</name>
-			<value>/WEB-INF/jsp/help.jsp</value>
+			<name>contextConfigLocation</name>
+			<value>/WEB-INF/spring-portlet.xml</value>
 		</init-param>
 		<supports>
 			<mime-type>text/html</mime-type>
@@ -25,12 +30,35 @@
 			<portlet-mode>edit</portlet-mode>
 			<portlet-mode>help</portlet-mode>
 		</supports>
-		<supported-locale>en</supported-locale>
-		<resource-bundle>plutoPortlet</resource-bundle>
+		<!-- <supported-locale>en</supported-locale> -->
+		<!-- <resource-bundle>plutoPortlet</resource-bundle> -->
 		<portlet-info>
 			<title>plutoPortlet</title>
 			<short-title>plutoPortlet</short-title>
 			<keywords>plutoPortlet</keywords>
 		</portlet-info>
 	</portlet>
+
+	<!-- spring -->
+	<!-- <portlet> -->
+	<!-- <description>spring</description> -->
+	<!-- <portlet-name>spring</portlet-name> -->
+	<!-- <display-name>spring</display-name> -->
+	<!-- <portlet-class>org.springframework.web.portlet.DispatcherPortlet</portlet-class> -->
+	<!-- <init-param> -->
+	<!-- <name>contextConfigLocation</name> -->
+	<!-- <value>/WEB-INF/spring-portlet.xml</value> -->
+	<!-- </init-param> -->
+	<!-- <supports> -->
+	<!-- <mime-type>text/html</mime-type> -->
+	<!-- <portlet-mode>view</portlet-mode> -->
+	<!-- <portlet-mode>edit</portlet-mode> -->
+	<!-- <portlet-mode>help</portlet-mode> -->
+	<!-- </supports> -->
+	<!-- <portlet-info> -->
+	<!-- <title>spring</title> -->
+	<!-- <short-title>spring</short-title> -->
+	<!-- <keywords>spring</keywords> -->
+	<!-- </portlet-info> -->
+	<!-- </portlet> -->
 </portlet-app>

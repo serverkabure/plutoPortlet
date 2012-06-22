@@ -1,3 +1,27 @@
 plutoPortlet
 
 Apache Pluto 2.0用JSR286ポートレット
+
+20120621
+Plutoで動作させるポートレットは、
+必ずconf\Catalina\localhost\WEBアプリ.xmlが必要。
+コレが無いとViewはOKだがEditとHelpが表示できない。
+だからイロイロなフレームワークごとにWEBアプリ単位で分けると、
+そのたびにXMLファイルを作る必要がある。
+それだとメンドウなので、
+このWEBアプリにイロイロなテーマでポートレットを作成していく。
+と思ったけど、
+再デプロイでWEBアプリ.xmlが消えて無くなるので、
+再デプロイごとにXMLファイルを作成しなくてはならない。
+これは手間なので、Plutoの採用自体を再検討。
+
+20120623
+1.Pluto再検討について
+>Plutoの採用自体を再検討。
+試しにOpenShiftDIYでLiferay、Jetspeed2を建てたが、起動途中「Killed」で動作不可。
+当面はPlutoで進める。
+2.Spring化について
+Spring用として本AP内にSpringポートレットを追加すると、追加分がView以外表示できない。
+HelpやEditが表示できない。
+よって、本APをSpring化する。
+

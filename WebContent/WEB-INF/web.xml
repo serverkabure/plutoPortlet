@@ -2,9 +2,32 @@
 <web-app id="WebApp_ID" version="3.0"
 	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+	<!-- spring用 -->
+	<context-param>
+		<description>spring用</description>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>/WEB-INF/applicationContext.xml</param-value>
+	</context-param>
+	<listener>
+		<description>spring用</description>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
 	<servlet>
+		<description>spring用</description>
+		<servlet-name>view-servlet</servlet-name>
+		<servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>view-servlet</servlet-name>
+		<url-pattern>/WEB-INF/servlet/view</url-pattern>
+	</servlet-mapping>
+	<!-- spring用 -->
+
+	<!-- plutoPortlet用 -->
+	<servlet>
+		<description>plutoPortlet用</description>
 		<servlet-name>plutoPortlet</servlet-name>
-		<!-- <servlet-class>org.apache.pluto.core.PortletServlet</servlet-class> -->
 		<servlet-class>org.apache.pluto.container.driver.PortletServlet</servlet-class>
 		<init-param>
 			<param-name>portlet-name</param-name>
@@ -16,15 +39,36 @@
 		<servlet-name>plutoPortlet</servlet-name>
 		<url-pattern>/PlutoInvoker/plutoPortlet</url-pattern>
 	</servlet-mapping>
+	<!-- plutoPortlet用 -->
+
+	<!-- spring用 -->
+	<!-- <servlet> -->
+	<!-- <description>spring用</description> -->
+	<!-- <servlet-name>spring</servlet-name> -->
+	<!-- <servlet-class>org.apache.pluto.container.driver.PortletServlet</servlet-class> -->
+	<!-- <init-param> -->
+	<!-- <param-name>portlet-name</param-name> -->
+	<!-- <param-value>spring</param-value> -->
+	<!-- </init-param> -->
+	<!-- <load-on-startup>1</load-on-startup> -->
+	<!-- </servlet> -->
+	<!-- <servlet-mapping> -->
+	<!-- <servlet-name>spring</servlet-name> -->
+	<!-- <url-pattern>/PlutoInvoker/spring</url-pattern> -->
+	<!-- </servlet-mapping> -->
+	<!-- spring用 -->
+
+	<!-- <servlet> <servlet-name>TestPortlet1</servlet-name> <servlet-class>org.apache.pluto.container.driver.PortletServlet 
+		</servlet-class> <init-param> <param-name>portlet-name</param-name> <param-value>TestPortlet1</param-value> 
+		</init-param> <load-on-startup>1</load-on-startup> </servlet> <servlet-mapping> 
+		<servlet-name>TestPortlet1</servlet-name> <url-pattern>/PlutoInvoker/TestPortlet1</url-pattern> 
+		</servlet-mapping> -->
+
 	<jsp-config>
 		<taglib>
 			<taglib-uri>http://java.sun.com/portlet_2_0</taglib-uri>
 			<taglib-location>/WEB-INF/portlet_2_0.tld</taglib-location>
 		</taglib>
 	</jsp-config>
-	<!-- <servlet> <servlet-name>TestPortlet1</servlet-name> <servlet-class>org.apache.pluto.container.driver.PortletServlet 
-		</servlet-class> <init-param> <param-name>portlet-name</param-name> <param-value>TestPortlet1</param-value> 
-		</init-param> <load-on-startup>1</load-on-startup> </servlet> <servlet-mapping> 
-		<servlet-name>TestPortlet1</servlet-name> <url-pattern>/PlutoInvoker/TestPortlet1</url-pattern> 
-		</servlet-mapping> -->
+
 </web-app>
